@@ -1,10 +1,6 @@
 # Models (large files)
 models
 
-# Node.js (original examples)
-node_modules
-node-llama-docs
-
 # Go binaries and build artifacts
 bin/
 *.exe

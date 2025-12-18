@@ -72,7 +72,7 @@ make run-react          # ReAct agent (reasoning + acting)
 Follow these examples in order to build understanding progressively:
 
 ### 1. **Introduction** - Basic LLM Interaction
-`intro/` | [Code](examples/01_intro/intro.js) | [Code Explanation](examples/01_intro/CODE.md) | [Concepts](examples/01_intro/CONCEPT.md)
+[Go Code](examples-go/01_intro/main.go)
 
 **What you'll learn:**
 - Loading and running a local LLM
@@ -82,20 +82,8 @@ Follow these examples in order to build understanding progressively:
 
 ---
 
-### 2. (Optional) **OpenAI Intro** - Using Proprietary Models
-`openai-intro/` | [Code](examples/02_openai-intro/openai-intro.js) | [Code Explanation](examples/02_openai-intro/CODE.md) | [Concepts](examples/02_openai-intro/CONCEPT.md)
-
-**What you'll learn:**
-- How to call hosted LLMs (like GPT-4)
-- Temperature Control
-- Token Usage
-
-**Key concepts**: Inference endpoints, network latency, cost vs control, data privacy, vendor dependence
-
----
-
-### 3. **Translation** - System Prompts & Specialization
-`translation/` | [Code](examples/03_translation/translation.js) | [Code Explanation](examples/03_translation/CODE.md) | [Concepts](examples/03_translation/CONCEPT.md)
+### 2. **Translation** - System Prompts & Specialization
+[Go Code](examples-go/03_translation/main.go)
 
 **What you'll learn:**
 - Using system prompts to specialize agents
@@ -107,8 +95,8 @@ Follow these examples in order to build understanding progressively:
 
 ---
 
-### 4. **Think** - Reasoning & Problem Solving
-`think/` | [Code](examples/04_think/think.js) | [Code Explanation](examples/04_think/CODE.md) | [Concepts](examples/04_think/CONCEPT.md)
+### 3. **Think** - Reasoning & Problem Solving
+[Go Code](examples-go/04_think/main.go)
 
 **What you'll learn:**
 - Configuring LLMs for logical reasoning
@@ -120,8 +108,8 @@ Follow these examples in order to build understanding progressively:
 
 ---
 
-### 5. **Batch** - Parallel Processing
-`batch/` | [Code](examples/05_batch/batch.js) | [Code Explanation](examples/05_batch/CODE.md) | [Concepts](examples/05_batch/CONCEPT.md)
+### 4. **Batch** - Parallel Processing
+[Go Code](examples-go/05_batch/main.go)
 
 **What you'll learn:**
 - Processing multiple requests concurrently
@@ -133,8 +121,8 @@ Follow these examples in order to build understanding progressively:
 
 ---
 
-### 6. **Coding** - Streaming & Response Control
-`coding/` | [Code](examples/06_coding/coding.js) | [Code Explanation](examples/06_coding/CODE.md) | [Concepts](examples/06_coding/CONCEPT.md)
+### 5. **Coding** - Streaming & Response Control
+[Go Code](examples-go/06_coding/main.go)
 
 **What you'll learn:**
 - Real-time streaming responses
@@ -146,8 +134,8 @@ Follow these examples in order to build understanding progressively:
 
 ---
 
-### 7. **Simple Agent** - Function Calling (Tools)
-`simple-agent/` | [Code](examples/07_simple-agent/simple-agent.js) | [Code Explanation](examples/07_simple-agent/CODE.md) | [Concepts](examples/07_simple-agent/CONCEPT.md)
+### 6. **Simple Agent** - Function Calling (Tools)
+[Go Code](examples-go/07_simple-agent/main.go)
 
 **What you'll learn:**
 - Function calling / tool use fundamentals
@@ -161,21 +149,8 @@ Follow these examples in order to build understanding progressively:
 
 ---
 
-### 8. **Simple Agent with Memory** - Persistent State
-`simple-agent-with-memory/` | [Code](examples/08_simple-agent-with-memory/simple-agent-with-memory.js) | [Code Explanation](examples/08_simple-agent-with-memory/CODE.md) | [Concepts](examples/08_simple-agent-with-memory/CONCEPT.md)
-
-**What you'll learn:**
-- Persisting information across sessions
-- Long-term memory management
-- Facts and preferences storage
-- Memory retrieval strategies
-
-**Key concepts**: Persistent memory, state management, memory systems, context augmentation
-
----
-
-### 9. **ReAct Agent** - Reasoning + Acting
-`react-agent/` | [Code](examples/09_react-agent/react-agent.js) | [Code Explanation](examples/09_react-agent/CODE.md) | [Concepts](examples/09_react-agent/CONCEPT.md)
+### 7. **ReAct Agent** - Reasoning + Acting
+[Go Code](examples-go/09_react-agent/main.go)
 
 **What you'll learn:**
 - ReAct pattern (Reason → Act → Observe)
@@ -189,36 +164,20 @@ Follow these examples in order to build understanding progressively:
 
 ---
 
-### 10. **AoT Agent** - Atom of Thought Planning
-`aot-agent/` | [Code](examples/10_aot-agent/aot-agent.js) | [Code Explanation](examples/10_aot-agent/CODE.md) | [Concepts](examples/10_aot-agent/CONCEPT.md)
 
-**What you'll learn:**
-- Atom of Thought methodology
-- Atomic planning for multi-step computations
-- Dependency management between operations
-- Structured JSON output for reasoning plans
-- Deterministic execution of plans
-
-**Key concepts**: AoT planning, atomic operations, dependency resolution, plan validation, structured reasoning
-
-**This is the foundation for agents that separate planning from execution, enabling precise and auditable multi-step reasoning!**
-
----
 
 ## Documentation Structure
 
-Each example folder contains:
+Each example includes:
 
-- **`<name>.js`** - The working code example
-- **`CODE.md`** - Step-by-step code explanation
-- Line-by-line breakdowns
-- What each part does
-- How it works
-- **`CONCEPT.md`** - High-level concepts
-- Why it matters for agents
-- Architectural patterns
-- Real-world applications
-- Simple diagrams
+- **`main.go`** - Complete working Go code
+- Inline comments explaining key concepts
+- Clean, idiomatic Go patterns
+
+Additional documentation:
+- **[examples-go/README.md](examples-go/README.md)** - Overview of all examples
+- **[QUICKSTART_GO.md](QUICKSTART_GO.md)** - Setup guide
+- **[SETUP_LLAMA_CPP.md](SETUP_LLAMA_CPP.md)** - Troubleshooting
 
 ## Core Concepts
 
@@ -237,11 +196,10 @@ AI Agent = LLM + System Prompt + Tools + Memory + Reasoning Pattern
 1. intro          → Basic LLM usage
 2. translation    → Specialized behavior (system prompts)
 3. think          → Reasoning ability
-4. batch          → Parallel processing
-5. coding         → Streaming & control
+4. batch          → Parallel processing (goroutines)
+5. coding         → Streaming & channels
 6. simple-agent   → Tool use (function calling)
-7. memory-agent   → Persistent state
-8. react-agent    → Strategic reasoning + tool use
+7. react-agent    → Strategic reasoning + tool use
 ```
 
 ### Architecture Patterns
@@ -256,14 +214,7 @@ User → LLM → Response
 User → LLM ⟷ Tools → Response
 ```
 
-**Memory Agent (Step 7)**
-```
-User → LLM ⟷ Tools → Response
-       ↕
-     Memory
-```
-
-**ReAct Agent (Step 8)**
+**ReAct Agent (Step 7)**
 ```
 User → LLM → Think → Act → Observe
        ↑      ↓      ↓      ↓
@@ -271,18 +222,14 @@ User → LLM → Think → Act → Observe
            Iterate until solved
 ```
 
-## ️ Helper Utilities
+## ️ Debugging and Logging
 
-### PromptDebugger
-`helper/prompt-debugger.js`
+Go provides excellent built-in tools for debugging:
 
-Utility for debugging prompts sent to the LLM. Shows exactly what the model sees, including:
-- System prompts
-- Function definitions
-- Conversation history
-- Context state
-
-Usage example in `simple-agent/simple-agent.js`
+- Use `fmt.Printf()` for basic debugging
+- Enable verbose mode in agents (see ReAct example)
+- Use Go's `log` package for structured logging
+- Examine context and message flow in your code
 
 ## ️ Project Structure - Go Edition
 
@@ -333,157 +280,42 @@ The Go version follows idiomatic Go patterns:
 - **Interfaces**: Go interfaces for extensibility (Runnable, Tool, Message, etc.)
 - **Concurrency**: Goroutines for parallel processing instead of Promises
 
-## Phase 2: Building a Production Framework (Tutorial)
 
-After mastering the fundamentals above, **Phase 2** takes you from scratch examples to production-grade framework design. You'll rebuild core concepts from **LangChain** and **LangGraph** to understand how real frameworks work internally.
 
-### What You'll Build
 
-A lightweight but complete agent framework with:
-- **Runnable Interface**, The composability pattern that powers everything
-- **Message System**, Typed conversation structures (Human, AI, System, Tool)
-- **Chains**, Composing multiple operations into pipelines
-- **Memory**, Persistent state across conversations
-- **Tools**, Function calling and external integrations
-- **Agents**, Decision-making loops (ReAct, Tool-calling)
-- **Graphs**, State machines for complex workflows (LangGraph concepts)
 
-### Learning Approach
 
-**Tutorial-first**: Step-by-step lessons with exercises  
-**Implementation-driven**: Build each component yourself  
-**Framework-compatible**: Learn patterns used in LangChain.js
-
-### Structure Overview
-
-```
-tutorial/
-├── 01-foundation/              # 1. Core Abstractions
-│   ├── 01-runnable/
-│   │   ├── lesson.md           # Why Runnable matters
-│   │   ├── exercises/          # Hands-on practice
-│   │   └── solutions/          # Reference implementations
-│   ├── 02-messages/            # Structuring conversations
-│   ├── 03-llm-wrapper/         # Wrapping node-llama-cpp
-│   └── 04-context/             # Configuration & callbacks
-│
-├── 02-composition/             # 2. Building Chains
-│   ├── 01-prompts/             # Template system
-│   ├── 02-parsers/             # Structured outputs
-│   ├── 03-llm-chain/           # Your first chain
-│   ├── 04-piping/              # Composition patterns
-│   └── 05-memory/              # Conversation state
-│
-├── 03-agency/                  # 3. Tools & Agents
-│   ├── 01-tools/               # Function definitions
-│   ├── 02-tool-executor/       # Safe execution
-│   ├── 03-simple-agent/        # Basic agent loop
-│   ├── 04-react-agent/         # Reasoning + Acting
-│   └── 05-structured-agent/    # JSON mode
-│
-└── 04-graphs/                  # 4. State Machines
-    ├── 01-state-basics/        # Nodes & edges
-    ├── 02-channels/            # State management
-    ├── 03-conditional-edges/   # Dynamic routing
-    ├── 04-executor/            # Running workflows
-    ├── 05-checkpointing/       # Persistence
-    └── 06-agent-graph/         # Agents as graphs
-
-src/
-├── core/                       # Runnable, Messages, Context
-├── llm/                        # LlamaCppLLM wrapper
-├── prompts/                    # Template system
-├── chains/                     # LLMChain, SequentialChain
-├── tools/                      # BaseTool, built-in tools
-├── agents/                     # AgentExecutor, ReActAgent
-├── memory/                     # BufferMemory, WindowMemory
-└── graph/                      # StateGraph, CompiledGraph
-```
-
-### Why This Matters
-
-**Understanding beats using**: When you know how frameworks work internally, you can:
-- Debug issues faster
-- Customize behavior confidently
-- Make architectural decisions wisely
-- Build your own extensions
-- Read framework source code fluently
-
-**Learn once, use everywhere**: The patterns you'll learn (Runnable, composition, state machines) apply to:
-- LangChain.js - You'll understand their abstractions
-- LangGraph.js - You'll grasp state management
-- Any agent framework - Same core concepts
-- Your own projects - Build custom solutions
-
-### Getting Started with Phase 2
-
-After completing the fundamentals (intro → react-agent), start the tutorial:
-
-[Overview](tutorial/README.md)
-
-```bash
-# Start with the foundation
-cd tutorial/01-foundation/01-runnable
-lesson.md                    # Read the lesson
-node exercises/01-*.js           # Complete exercises
-node solutions/01-*-solution.js  # Check your work
-```
-
-Each lesson includes:
-- **Conceptual explanation**, Why it matters
-- **Code walkthrough**, How to build it
-- **Exercises**, Practice implementing
-- **Solutions**, Reference code
-- **Real-world examples**, Practical usage
-
-**Time commitment**: ~8 weeks, 3-5 hours/week
-
-### What You'll Achieve
-
-By the end, you'll have:
-1. Built a working agent framework from scratch
-2. Understood how LangChain/LangGraph work internally
-3. Mastered composability patterns
-4. Created reusable components (tools, chains, agents)
-5. Implemented state machines for complex workflows
-6. Gained confidence to use or extend any framework
-
-**Then**: Use LangChain.js in production, knowing exactly what happens under the hood.
-
----
 
 ## Key Takeaways
 
-### After Phase 1 (Fundamentals), you'll understand:
+### What You'll Learn:
 
-1. **LLMs are stateless**: Context must be managed explicitly
+1. **LLMs are stateless**: Context must be managed explicitly in Go
 2. **System prompts shape behavior**: Same model, different roles
 3. **Function calling enables agency**: Tools transform text generators into agents
-4. **Memory is essential**: Agents need to remember across sessions
-5. **Reasoning patterns matter**: ReAct > simple prompting for complex tasks
-6. **Performance matters**: Parallel processing, streaming, token limits
-7. **Debugging is crucial**: See exactly what the model receives
+4. **Goroutines for parallelism**: Native concurrency for batch processing
+5. **Channels for streaming**: Real-time token generation with Go channels
+6. **Reasoning patterns matter**: ReAct > simple prompting for complex tasks
+7. **Type safety catches errors**: Compile-time checking prevents runtime issues
+8. **Interface-based design**: Extensible, testable architecture
 
-### After Phase 2 (Framework Tutorial), you'll master:
+### Go-Specific Advantages:
 
-1. **The Runnable pattern**: Why everything in frameworks uses one interface
-2. **Composition over configuration**: Building complex systems from simple parts
-3. **Message-driven architecture**: How frameworks structure conversations
-4. **Chain abstraction**: Connecting prompts, LLMs, and parsers seamlessly
-5. **Tool orchestration**: Safe execution with timeouts and error handling
-6. **Agent execution loops**: The mechanics of decision-making agents
-7. **State machines**: Managing complex workflows with graphs
-8. **Production patterns**: Error handling, retries, streaming, and debugging
+1. **The Runnable pattern**: Composable components with a unified interface
+2. **Type-safe messages**: Compile-time guarantees for conversation flow
+3. **Context for cancellation**: Proper resource management and timeouts
+4. **Defer for cleanup**: Automatic resource cleanup (model.Close())
+5. **Goroutines for concurrency**: Efficient parallel processing
+6. **Single binary deployment**: No runtime dependencies
 
-### What frameworks give you:
+### Using Frameworks:
 
-Now that you understand the fundamentals, frameworks like LangChain, CrewAI, or AutoGPT provide:
+Now that you understand the fundamentals, frameworks like LangChainGo or similar provide:
 - Pre-built reasoning patterns and agent templates
 - Extensive tool libraries and integrations
 - Production-ready error handling and retries
 - Multi-agent orchestration
 - Observability and monitoring
-- Community extensions and plugins
 
 **You'll use them better because you know what they're doing under the hood.**
 
@@ -563,12 +395,13 @@ See [CONVERSION_SUMMARY.md](CONVERSION_SUMMARY.md) for full conversion details.
 
 **Built with ❤️ for people who want to truly understand AI agents**
 
-The Go version preserves all the educational value of the original while adding:
+This Go implementation provides:
 - Type safety and compile-time checks
 - Better performance and lower memory usage
 - Native concurrency with goroutines
 - Single binary deployment
+- Clean, idiomatic Go code
 
-Start with [QUICKSTART_GO.md](QUICKSTART_GO.md) for the Go version, or explore the original JavaScript examples in `examples/` for comparison.
+Start with [QUICKSTART_GO.md](QUICKSTART_GO.md) to begin building AI agents in Go!
 
 Happy learning! 🚀 
