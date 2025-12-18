@@ -1,10 +1,10 @@
-# AI Agents From Scratch
+# AI Agents From Scratch - Go Edition
 
 Learn to build AI agents locally without frameworks. Understand what happens under the hood before using production frameworks.
 
 ## Purpose
 
-This repository teaches you to build AI agents from first principles using **local LLMs** and **node-llama-cpp**. By working through these examples, you'll understand:
+This repository teaches you to build AI agents from first principles using **local LLMs** and **Go**. By working through these examples, you'll understand:
 
 - How LLMs work at a fundamental level
 - What agents really are (LLM + tools + patterns)
@@ -13,6 +13,15 @@ This repository teaches you to build AI agents from first principles using **loc
 
 **Philosophy**: Learn by building. Understand deeply, then use frameworks wisely.
 
+## Why Go?
+
+This is a Go port of the original Node.js implementation. Go offers:
+- **Performance**: Compiled binaries with low memory footprint
+- **Concurrency**: Native goroutines for parallel processing
+- **Type Safety**: Strong typing catches errors at compile time
+- **Simplicity**: Clean, readable code that's easy to understand
+- **Deployment**: Single binary deployment with no runtime dependencies
+
 ## Next Phase: Build LangChain & LangGraph Concepts From Scratch
 
 > After mastering the fundamentals, the next stage of this project walks you through **re-implementing the core parts of LangChain and LangGraph** in plain JavaScript using local models.
@@ -20,21 +29,42 @@ This repository teaches you to build AI agents from first principles using **loc
 
 ## Phase 1: Agent Fundamentals - From LLMs to ReAct
 
+### Quick Start
+
+**New to this project?** Start here: [Quick Start Guide (Go)](QUICKSTART_GO.md)
+
 ### Prerequisites
-- Node.js 18+
+- Go 1.23 or later
 - At least 8GB RAM (16GB recommended)
+- GCC or compatible C compiler (for CGO)
 - Download models and place in `./models/` folder, details in [DOWNLOAD.md](DOWNLOAD.md)
 
 ### Installation
 ```bash
-npm install
+# Clone the repository
+git clone https://github.com/mgreau/ai-agents-from-scratch-go.git
+cd ai-agents-from-scratch-go
+
+# Download dependencies
+make deps
+
+# Build all examples
+make build
 ```
 
 ### Run Examples
 ```bash
-node intro/intro.js
-node simple-agent/simple-agent.js
-node react-agent/react-agent.js
+# Run individual examples
+make run-intro          # Basic LLM interaction
+make run-translation    # System prompts & specialization
+make run-coding         # Streaming responses
+make run-agent          # Simple agent with tools
+make run-react          # ReAct agent (reasoning + acting)
+
+# Or run binaries directly
+./bin/intro
+./bin/simple-agent
+./bin/react-agent
 ```
 
 ## Learning Path
@@ -254,54 +284,54 @@ Utility for debugging prompts sent to the LLM. Shows exactly what the model sees
 
 Usage example in `simple-agent/simple-agent.js`
 
-## ️ Project Structure - Fundamentals
+## ️ Project Structure - Go Edition
 
 ```
-ai-agents/
-├── README.md                          ← You are here
-├─ examples/
-├── 01_intro/
-│   ├── intro.js
-│   ├── CODE.md
-│   └── CONCEPT.md
-├── 02_openai-intro/
-│   ├── openai-intro.js
-│   ├── CODE.md
-│   └── CONCEPT.md
-├── 03_translation/
-│   ├── translation.js
-│   ├── CODE.md
-│   └── CONCEPT.md
-├── 04_think/
-│   ├── think.js
-│   ├── CODE.md
-│   └── CONCEPT.md
-├── 05_batch/
-│   ├── batch.js
-│   ├── CODE.md
-│   └── CONCEPT.md
-├── 06_coding/
-│   ├── coding.js
-│   ├── CODE.md
-│   └── CONCEPT.md
-├── 07_simple-agent/
-│   ├── simple-agent.js
-│   ├── CODE.md
-│   └── CONCEPT.md
-├── 08_simple-agent-with-memory/
-│   ├── simple-agent-with-memory.js
-│   ├── memory-manager.js
-│   ├── CODE.md
-│   └── CONCEPT.md
-├── 09_react-agent/
-│   ├── react-agent.js
-│   ├── CODE.md
-│   └── CONCEPT.md
-├── helper/
-│   └── prompt-debugger.js
+ai-agents-from-scratch-go/
+├── README.md                           ← You are here
+├── go.mod                              ← Go module definition
+├── Makefile                            ← Build and run commands
+├── examples-go/                        ← Go examples
+│   ├── 01_intro/
+│   │   └── main.go
+│   ├── 03_translation/
+│   │   └── main.go
+│   ├── 06_coding/
+│   │   └── main.go
+│   ├── 07_simple-agent/
+│   │   └── main.go
+│   └── 09_react-agent/
+│       └── main.go
+├── pkg/                                ← Go packages
+│   ├── core/                           ← Core abstractions
+│   │   ├── runnable.go
+│   │   ├── message.go
+│   │   └── context.go
+│   ├── llm/                            ← LLM implementations
+│   │   └── llama.go
+│   ├── tools/                          ← Tool definitions
+│   │   └── base.go
+│   ├── agents/                         ← Agent implementations
+│   │   └── react.go
+│   ├── chains/                         ← Chain implementations
+│   ├── memory/                         ← Memory implementations
+│   ├── prompts/                        ← Prompt templates
+│   ├── parsers/                        ← Output parsers
+│   └── graph/                          ← Graph implementations
+├── examples/                           ← Original JS examples (reference)
 ├── models/                             ← Place your GGUF models here
+├── bin/                                ← Compiled binaries
 └── logs/                               ← Debug outputs
 ```
+
+### Go vs JavaScript Structure
+
+The Go version follows idiomatic Go patterns:
+- **Packages**: Code organized in `pkg/` directory with clear package boundaries
+- **Examples**: Each example is a standalone `main.go` that can be compiled
+- **Binaries**: Compiled executables in `bin/` directory
+- **Interfaces**: Go interfaces for extensibility (Runnable, Tool, Message, etc.)
+- **Concurrency**: Goroutines for parallel processing instead of Promises
 
 ## Phase 2: Building a Production Framework (Tutorial)
 
@@ -477,8 +507,68 @@ Educational resource - use and modify as needed for learning.
 
 ---
 
+## Go Conversion Status
+
+This repository has been successfully converted to Go! 🎉
+
+**What's Complete:**
+- ✅ Core architecture (Runnable, Messages, Context)
+- ✅ Tool system with registry
+- ✅ ReAct agent implementation  
+- ✅ 7 working examples
+- ✅ LLM integration (go-skynet/go-llama.cpp)
+- ✅ Comprehensive documentation
+- ✅ Build system (Makefile)
+
+**Setup Required:**
+- ⚠️ Build llama.cpp C++ library (one-time setup)
+- ⚠️ Configure CGO environment variables
+- See [SETUP_LLAMA_CPP.md](SETUP_LLAMA_CPP.md) for detailed instructions
+
+**Optional Enhancements:**
+- 🔄 Additional examples (memory-agent, aot-agent)
+- 🔄 Advanced components (chains, graphs, parsers)
+
+**Quick Setup:**
+```bash
+# 1. Build llama.cpp (one-time setup)
+cd ~ && git clone https://github.com/ggerganov/llama.cpp.git
+cd llama.cpp && mkdir build && cd build
+cmake .. && cmake --build . --config Release
+
+# 2. Set environment variables (add to ~/.bashrc or ~/.zshrc)
+export LLAMA_CPP_DIR="$HOME/llama.cpp"
+export CGO_CFLAGS="-I${LLAMA_CPP_DIR}"
+export CGO_LDFLAGS="-L${LLAMA_CPP_DIR}/build -lllama"
+export LD_LIBRARY_PATH="${LLAMA_CPP_DIR}/build:${LD_LIBRARY_PATH}"
+source ~/.bashrc  # or ~/.zshrc
+
+# 3. Build and run examples
+cd /path/to/ai-agents-from-scratch-go
+make deps
+make build
+make run-intro
+```
+
+**Setup Guide:**  
+Having issues? See [SETUP_LLAMA_CPP.md](SETUP_LLAMA_CPP.md) for detailed troubleshooting.
+
+**Detailed Instructions:**  
+Step-by-step guide: [QUICKSTART_GO.md](QUICKSTART_GO.md)
+
+**Conversion Details:**  
+See [CONVERSION_SUMMARY.md](CONVERSION_SUMMARY.md) for full conversion details.
+
+---
+
 **Built with ❤️ for people who want to truly understand AI agents**
 
-Start with `intro/` and work your way through. Each example builds on the previous one. Read both CODE.md and CONCEPT.md for full understanding.
+The Go version preserves all the educational value of the original while adding:
+- Type safety and compile-time checks
+- Better performance and lower memory usage
+- Native concurrency with goroutines
+- Single binary deployment
 
-Happy learning! 
+Start with [QUICKSTART_GO.md](QUICKSTART_GO.md) for the Go version, or explore the original JavaScript examples in `examples/` for comparison.
+
+Happy learning! 🚀 
