@@ -1,6 +1,27 @@
-# Go Tutorial - Building AI Agents Step by Step
+# AI Agents Framework Tutorial - Go Edition
 
-This tutorial walks you through building AI agent components in Go, from basic concepts to advanced patterns.
+Welcome to the step-by-step tutorial for building your own AI agent framework in Go!
+
+This tutorial teaches you to build a **lightweight, educational AI agent framework** with the same core concepts as LangChain, but with simpler implementations designed for learning.
+
+Instead of diving into complex framework codebases, you'll rebuild key patterns yourself with clear, educational Go code. By the end, you'll understand what frameworks are actually doing, making you far more effective at using them.
+
+**What you'll implement:**
+- Runnable interface (composability pattern)
+- Message types (structured conversations)
+- LLM wrappers (model integration)
+- Tools system (function calling)
+- Agents (decision-making loops)
+- Advanced patterns (chains, memory, graphs)
+
+**What makes this different:**
+- Go-idiomatic implementations
+- Type-safe with interfaces
+- Concurrency with goroutines
+- Real, working code (not pseudocode)
+- Educational focus (understanding over completeness)
+
+Build it yourself. Understand it deeply. Use frameworks confidently.
 
 ## 🎯 Learning Path
 

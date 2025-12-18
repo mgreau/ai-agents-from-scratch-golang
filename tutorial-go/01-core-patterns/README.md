@@ -1,6 +1,21 @@
-# Tutorial 01: Core Patterns in Go
+# Part 1: Foundation - Core Patterns
 
-Learn the foundational patterns that power the AI agents framework.
+**From Scripts to Abstractions**
+
+Transform the patterns you already use into reusable components.
+
+## Before You Start: Why This Tutorial Exists
+
+**You've just built AI agents with Go and llama.cpp.** You know how to call LLMs, format prompts, parse responses, and create agent loops. That's awesome—you understand the fundamentals!
+
+**But you probably noticed some friction:**
+- Copy-pasting prompt formatting everywhere
+- Manually building message arrays each time
+- Hard to test individual components
+- Difficult to swap out models or reuse patterns
+- Agent code that works but feels messy
+
+**This tutorial fixes those problems.** You'll transform the script-style code into clean, composable abstractions.
 
 ## 🎯 Learning Objectives
 
