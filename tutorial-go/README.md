@@ -1,198 +1,260 @@
-# AI Agents Framework Tutorial - Go Edition
+# AI Agents From Scratch - Complete Tutorial
 
-Welcome to the step-by-step tutorial for building your own AI agent framework in Go!
+> **A comprehensive guide to building production-ready AI agents in Go**
 
-This tutorial teaches you to build a **lightweight, educational AI agent framework** with the same core concepts as LangChain, but with simpler implementations designed for learning.
+## 🎓 Welcome!
 
-Instead of diving into complex framework codebases, you'll rebuild key patterns yourself with clear, educational Go code. By the end, you'll understand what frameworks are actually doing, making you far more effective at using them.
+This tutorial teaches you to build AI agents in Go from first principles. No prior AI experience required - just Go knowledge and curiosity.
 
-**What you'll implement:**
-- Runnable interface (composability pattern)
-- Message types (structured conversations)
-- LLM wrappers (model integration)
-- Tools system (function calling)
-- Agents (decision-making loops)
-- Advanced patterns (chains, memory, graphs)
+## 📖 Tutorial Structure
 
-**What makes this different:**
-- Go-idiomatic implementations
-- Type-safe with interfaces
-- Concurrency with goroutines
-- Real, working code (not pseudocode)
-- Educational focus (understanding over completeness)
+The tutorial is organized into 4 progressive parts:
 
-Build it yourself. Understand it deeply. Use frameworks confidently.
+```
+Foundation → Composition → Agency → Graphs
+   ↓            ↓            ↓         ↓
+Patterns    Components    Agents   Workflows
+```
 
-## 🎯 Learning Path
+### 🏗️ Part 1: Foundation
+**Learn the core patterns** (4 lessons, 16 exercises, 135 pages)
 
-### Phase 1: Foundations (Start Here)
+Start here to understand the fundamental abstractions:
+- [01-core-patterns/](01-core-patterns/) - Runnables, Messages, LLMs, Config
 
-Work through the examples in order:
+**Time:** 1-2 weeks
 
-1. **[01_intro](../examples-go/01_intro/)** - Basic LLM interaction
-2. **[03_translation](../examples-go/03_translation/)** - System prompts
-3. **[04_think](../examples-go/04_think/)** - Reasoning
-4. **[05_batch](../examples-go/05_batch/)** - Parallel processing with goroutines
-5. **[06_coding](../examples-go/06_coding/)** - Streaming with channels
-6. **[07_simple-agent](../examples-go/07_simple-agent/)** - Tools and function calling
-7. **[09_react-agent](../examples-go/09_react-agent/)** - ReAct pattern
+**You'll build:** Simple LLM chat application with callbacks
 
-### Phase 2: Deep Dive (Advanced)
+---
 
-Learn the architecture by building components:
+### 🔧 Part 2: Composition  
+**Build reusable components** (5 lessons, 20 exercises, 175 pages)
 
-1. **[01-core-patterns](01-core-patterns/)** - Runnable, Messages, Context
-2. **[02-llm-integration](02-llm-integration/)** - LLM wrapper patterns
-3. **[03-tools-system](03-tools-system/)** - Building custom tools
-4. **[04-agent-patterns](04-agent-patterns/)** - Agent architectures
-5. **[05-advanced-concepts](05-advanced-concepts/)** - Memory, chains, graphs
+Learn to compose complex behaviors from simple pieces:
+- [02-composition/](02-composition/) - Prompts, Parsers, Chains, Piping, Memory
 
-## 📚 How to Use This Tutorial
+**Time:** 2-3 weeks
 
-### For Beginners
+**You'll build:** Translation service with conversation memory
 
-1. **Start with examples-go/** - Run and study the working code
-2. **Read inline comments** - Each example has detailed explanations
-3. **Experiment** - Modify parameters and prompts
-4. **Build something** - Create your own tool or agent
+---
 
-### For Intermediate Developers
+### 🤖 Part 3: Agency
+**Create autonomous agents** (5 lessons, 20 exercises, 175 pages)
 
-1. **Study pkg/ implementations** - See how components work
-2. **Read the advanced tutorials** - Deep dive into patterns
-3. **Complete exercises** - Practice implementing features
-4. **Extend the framework** - Add new capabilities
+Build agents that use tools and make decisions:
+- [03-agency/](03-agency/) - Tools, Executors, Simple/ReAct/Structured Agents
 
-### For Advanced Developers
+**Time:** 2-3 weeks
 
-1. **Implement missing features** - Memory systems, chains, graphs
-2. **Optimize performance** - Benchmarking and profiling
-3. **Production deployment** - Docker, monitoring, scaling
-4. **Contribute back** - Share your improvements
+**You'll build:** Multi-tool assistant with ReAct reasoning
 
-## 🛠️ Tutorial Structure
+---
 
-Each advanced tutorial includes:
+### 🌐 Part 4: Graphs
+**Design complex workflows** (6 lessons, 24 exercises, 180 pages)
 
-- **README.md** - Concept explanation and learning objectives
-- **starter/** - Starting point with TODO markers
-- **solution/** - Complete implementation
-- **tests/** - Test cases to verify your implementation
-- **examples/** - Practical usage examples
+Master state machines and multi-agent workflows:
+- [04-graphs/](04-graphs/) - State Machines, Channels, Conditional Routing, Checkpointing
 
-## 🎓 Learning Objectives
+**Time:** 2-3 weeks
 
-By completing this tutorial, you'll understand:
+**You'll build:** Document processing pipeline with checkpoints
 
-### Go-Specific Skills
-- ✅ Interface-based design in Go
-- ✅ Context for cancellation and timeouts
-- ✅ Channels for streaming data
-- ✅ Goroutines for concurrency
-- ✅ Error handling patterns
-- ✅ Resource management with defer
-
-### AI Agent Concepts
-- ✅ LLM interaction and prompting
-- ✅ Tool/function calling
-- ✅ Agent reasoning patterns (ReAct)
-- ✅ Message-driven architecture
-- ✅ State management
-- ✅ Composable components
-
-### Architecture Patterns
-- ✅ Runnable interface pattern
-- ✅ Builder pattern for configuration
-- ✅ Registry pattern for tools
-- ✅ Strategy pattern for agents
-- ✅ Observer pattern for callbacks
-
-## 📖 Recommended Reading Order
-
-### Week 1-2: Basics
-- Run all examples in examples-go/
-- Read pkg/core/ implementations
-- Understand Runnable pattern
-
-### Week 3-4: Tools & Agents
-- Study pkg/tools/ and pkg/agents/
-- Implement custom tools
-- Build a simple agent
-
-### Week 5-6: Advanced
-- Complete advanced tutorials
-- Implement memory systems
-- Build chains and graphs
-
-### Week 7-8: Project
-- Build a complete application
-- Deploy to production
-- Optimize performance
+---
 
 ## 🚀 Getting Started
 
-```bash
-# 1. Complete setup first (see QUICKSTART_GO.md)
-make deps
-make build
+### Prerequisites
 
-# 2. Run examples to understand concepts
-make run-intro
-make run-agent
-make run-react
+- **Go 1.21+** installed
+- Basic Go knowledge (interfaces, goroutines, channels)
+- Text editor or IDE
+- (Optional) Local LLM model for running examples
 
-# 3. Study the implementations
-cd pkg/core
-# Read runnable.go, message.go, context.go
+### Start Learning
 
-# 4. Try advanced tutorials
-cd tutorial-go/01-core-patterns
-# Follow the README.md
-```
+1. **Clone this repository**
+   ```bash
+   git clone https://github.com/mgreau/ai-agents-from-scratch-golang.git
+   cd ai-agents-from-scratch-golang/tutorial-go
+   ```
 
-## 💡 Tips for Success
+2. **Start with Part 1**
+   ```bash
+   cd 01-core-patterns
+   # Read README.md, then start with lesson 01-runnable
+   ```
 
-1. **Understand before implementing** - Read the concept first
-2. **Type the code yourself** - Don't just copy/paste
-3. **Break things** - Experiment to learn
-4. **Read error messages** - Go's compiler helps you learn
-5. **Use the debugger** - Step through code to understand flow
-6. **Write tests** - Verify your understanding
-7. **Ask questions** - Check issues or discussions
+3. **Do the exercises**
+   - Each lesson has 4 exercises
+   - Start with `starter.go`, try to solve it
+   - Check `solution.go` when stuck or to compare approaches
 
-## 🤝 Contributing
+4. **Run the examples**
+   ```bash
+   cd ../../examples-go/01_intro
+   go run main.go
+   ```
 
-Found a better way to explain something? Want to add a tutorial?
+---
 
-1. Create a new tutorial in `tutorial-go/XX-topic-name/`
-2. Include starter, solution, and tests
-3. Update this README
-4. Submit a pull request
+## 📊 Full Contents
+
+### Part 1: Foundation (Weeks 1-2)
+
+| Lesson | Topic | Exercises | Pages |
+|--------|-------|-----------|-------|
+| 1 | [Runnable Pattern](01-core-patterns/01-runnable/lesson.md) | 4 | 30 |
+| 2 | [Messages & Types](01-core-patterns/02-messages/lesson.md) | 4 | 40 |
+| 3 | [LLM Wrapper](01-core-patterns/03-llm-wrapper/lesson.md) | 4 | 35 |
+| 4 | [Context & Config](01-core-patterns/04-context/lesson.md) | 4 | 30 |
+
+**Total:** 16 exercises, 135 pages
+
+---
+
+### Part 2: Composition (Weeks 3-4)
+
+| Lesson | Topic | Exercises | Pages |
+|--------|-------|-----------|-------|
+| 1 | [Prompts](02-composition/01-prompts/lesson.md) | 4 | 45 |
+| 2 | [Parsers](02-composition/02-parsers/lesson.md) | 4 | 40 |
+| 3 | [LLM Chain](02-composition/03-llm-chain/lesson.md) | 4 | 30 |
+| 4 | [Piping](02-composition/04-piping/lesson.md) | 4 | 30 |
+| 5 | [Memory](02-composition/05-memory/lesson.md) | 4 | 30 |
+
+**Total:** 20 exercises, 175 pages
+
+---
+
+### Part 3: Agency (Weeks 5-6)
+
+| Lesson | Topic | Exercises | Pages |
+|--------|-------|-----------|-------|
+| 1 | [Tools](03-agency/01-tools/lesson.md) | 4 | 35 |
+| 2 | [Tool Executor](03-agency/02-tool-executor/lesson.md) | 4 | 30 |
+| 3 | [Simple Agent](03-agency/03-simple-agent/lesson.md) | 4 | 30 |
+| 4 | [ReAct Agent](03-agency/04-react-agent/lesson.md) | 4 | 40 |
+| 5 | [Structured Agent](03-agency/05-structured-agent/lesson.md) | 4 | 40 |
+
+**Total:** 20 exercises, 175 pages
+
+---
+
+### Part 4: Graphs (Weeks 7-8)
+
+| Lesson | Topic | Exercises | Pages |
+|--------|-------|-----------|-------|
+| 1 | [State Basics](04-graphs/01-state-basics/lesson.md) | 4 | 30 |
+| 2 | [Channels](04-graphs/02-channels/lesson.md) | 4 | 30 |
+| 3 | [Conditional Edges](04-graphs/03-conditional-edges/lesson.md) | 4 | 30 |
+| 4 | [Executor](04-graphs/04-executor/lesson.md) | 4 | 30 |
+| 5 | [Checkpointing](04-graphs/05-checkpointing/lesson.md) | 4 | 30 |
+| 6 | [Agent Graphs](04-graphs/06-agent-graphs/lesson.md) | 4 | 30 |
+
+**Total:** 24 exercises, 180 pages
+
+---
+
+## 🎯 Learning Objectives
+
+By completing this tutorial, you will:
+
+### Technical Skills
+- ✅ Build composable AI components with Go interfaces
+- ✅ Manage conversation state with typed messages
+- ✅ Integrate LLMs (go-llama.cpp) with proper resource management
+- ✅ Create prompt templates with variable substitution
+- ✅ Parse structured data from LLM outputs
+- ✅ Implement multi-step reasoning agents (ReAct)
+- ✅ Build complex workflows with state machines
+- ✅ Use goroutines and channels for concurrency
+
+### Production Patterns
+- ✅ Error handling and recovery
+- ✅ Timeout protection
+- ✅ Resource cleanup
+- ✅ Observability (logging, metrics, tracing)
+- ✅ Checkpointing for long workflows
+- ✅ Type-safe tool definitions
+
+### Real-World Applications
+- ✅ Document processing pipelines
+- ✅ Customer support chatbots
+- ✅ Code generation assistants
+- ✅ Research agents
+- ✅ Multi-agent collaboration systems
+
+---
+
+## 💡 How to Use This Tutorial
+
+### 1. **Linear Path (Recommended)**
+Follow the parts in order: Foundation → Composition → Agency → Graphs
+
+Each part builds on previous concepts, so skipping ahead may be confusing.
+
+### 2. **Topic-Based Path**
+If you're experienced, jump to specific topics:
+- Need agents? Start at Part 3
+- Need workflows? Start at Part 4
+- But review Foundation first for core concepts
+
+### 3. **Exercise-Driven Path**
+Read lesson → Do exercises immediately → Check solutions → Move on
+
+Don't skip exercises - they reinforce learning.
+
+---
+
+## 🔨 Practice Tips
+
+1. **Type the code yourself** - Don't copy/paste, type it out
+2. **Modify examples** - Change parameters, add features
+3. **Break things** - See what errors look like
+4. **Read solutions** - Even if you solved it, compare approaches
+5. **Build projects** - Apply concepts to real problems
+
+---
 
 ## 📚 Additional Resources
 
-### Go Learning
-- [Go Tour](https://go.dev/tour/)
-- [Effective Go](https://go.dev/doc/effective_go)
-- [Go by Example](https://gobyexample.com/)
+### In This Repository
+- [COMPLETION_SUMMARY.md](COMPLETION_SUMMARY.md) - Comprehensive overview
+- [../examples-go/](../examples-go/) - 7 working examples
+- [../pkg/](../pkg/) - Complete implementations
 
-### AI/LLM Concepts
-- [Prompt Engineering Guide](https://www.promptingguide.ai/)
+### External Resources
+- [Go Documentation](https://go.dev/doc/)
+- [go-llama.cpp](https://github.com/go-skynet/go-llama.cpp)
+- [LangChain Concepts](https://python.langchain.com/docs/concepts)
 - [ReAct Paper](https://arxiv.org/abs/2210.03629)
-- [LangChain Concepts](https://docs.langchain.com/docs/)
 
-### Architecture Patterns
-- [Design Patterns in Go](https://refactoring.guru/design-patterns/go)
-- [Go Concurrency Patterns](https://go.dev/blog/pipelines)
+---
 
-## 🎯 Next Steps
+## 🤝 Contributing
 
-After completing this tutorial:
+Found a typo? Have a suggestion? Contributions welcome!
 
-1. **Build a real project** - Apply what you learned
-2. **Explore frameworks** - Try LangChainGo, ChromaDB, etc.
-3. **Optimize** - Profile and improve performance
-4. **Deploy** - Put your agent in production
-5. **Share** - Write about your experience
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
-Happy learning! 🚀
+---
+
+## 📄 License
+
+See LICENSE file in root directory.
+
+---
+
+## 🎉 Ready to Start?
+
+Begin your journey: **[Part 1: Foundation →](01-core-patterns/)**
+
+Questions? Issues? Open an issue on GitHub!
+
+**Happy Learning! 🚀**
